@@ -1,0 +1,223 @@
+/* ============ Japão Golden Route — estilos ============ */
+:root {
+  --bg: #f4f4f8;
+  --card: #ffffff;
+  --ink: #1c1c28;
+  --ink2: #6b6b7b;
+  --accent: #e0344e;
+  --accent2: #c22740;
+  --indigo: #3d3d6b;
+  --line: #e6e6ee;
+  --ok: #10b981;
+  --tab-h: 62px;
+  --top-h: 52px;
+  --radius: 16px;
+  --shadow: 0 2px 10px rgba(20,20,40,.07);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg); color: var(--ink);
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+}
+button { font-family: inherit; border: none; background: none; cursor: pointer; color: inherit; }
+input { font-family: inherit; }
+.hidden { display: none !important; }
+
+/* ---- Top bar ---- */
+#topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  background: rgba(20,20,31,.92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  color: #fff;
+  padding-top: env(safe-area-inset-top);
+}
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; height: var(--top-h); padding: 0 16px; }
+.topbar-title { font-weight: 700; font-size: 17px; letter-spacing: .2px; }
+.icon-btn { font-size: 18px; padding: 8px; border-radius: 10px; }
+#searchbar { display: flex; gap: 8px; padding: 0 12px 10px; }
+#searchbar input {
+  flex: 1; height: 38px; border-radius: 12px; border: none; padding: 0 14px;
+  font-size: 16px; background: rgba(255,255,255,.14); color: #fff; outline: none;
+}
+#searchbar input::placeholder { color: rgba(255,255,255,.55); }
+#search-results {
+  max-height: 55vh; overflow-y: auto; background: #1e1e2c; border-top: 1px solid rgba(255,255,255,.08);
+}
+.sr-item { display: flex; gap: 10px; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,.06); color: #eee; width: 100%; text-align: left; }
+.sr-item small { color: #9a9ab0; display: block; }
+
+/* ---- Views ---- */
+#views { padding: calc(var(--top-h) + env(safe-area-inset-top)) 0 calc(var(--tab-h) + env(safe-area-inset-bottom)); min-height: 100vh; }
+.view { padding: 14px 14px 24px; max-width: 640px; margin: 0 auto; }
+#view-mapa { padding: 0; max-width: none; position: fixed;
+  top: calc(var(--top-h) + env(safe-area-inset-top));
+  bottom: calc(var(--tab-h) + env(safe-area-inset-bottom));
+  left: 0; right: 0; }
+#map { width: 100%; height: 100%; }
+
+/* ---- Tab bar ---- */
+#tabbar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
+  display: flex; justify-content: space-around;
+  background: rgba(255,255,255,.94); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line);
+  padding-bottom: env(safe-area-inset-bottom);
+  height: calc(var(--tab-h) + env(safe-area-inset-bottom));
+}
+.tab { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding-top: 6px; color: var(--ink2); }
+.tab span { font-size: 20px; line-height: 1; filter: grayscale(1) opacity(.6); }
+.tab label { font-size: 9.5px; font-weight: 600; pointer-events: none; }
+.tab.active { color: var(--accent); }
+.tab.active span { filter: none; }
+
+/* ---- Cards & common ---- */
+.card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px; margin-bottom: 12px; }
+.card h2 { font-size: 17px; margin-bottom: 8px; }
+.card h3 { font-size: 15px; }
+.muted { color: var(--ink2); font-size: 13px; }
+.chip { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 99px; background: #ededf4; color: var(--indigo); }
+.chip.red { background: #fde8ec; color: var(--accent2); }
+.chip.green { background: #e2f7ef; color: #0b7a58; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+/* ---- Início (hero) ---- */
+.hero {
+  background: linear-gradient(145deg, #1a1a2e 0%, #2d2d4e 60%, #3d2d4e 100%);
+  color: #fff; border-radius: 20px; padding: 22px 18px; margin-bottom: 14px;
+  position: relative; overflow: hidden;
+}
+.hero::after { content: "⛩️"; position: absolute; right: -6px; bottom: -14px; font-size: 90px; opacity: .16; }
+.hero h1 { font-size: 22px; margin-bottom: 4px; }
+.hero .dates { font-size: 14px; font-weight: 600; color: #ffb3c0; margin-bottom: 10px; }
+.hero p { font-size: 13.5px; line-height: 1.5; color: #d5d5e5; }
+.hero .cities { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.hero .cities .chip { background: rgba(255,255,255,.14); color: #fff; }
+.countdown { margin-top: 12px; font-size: 13px; font-weight: 700; color: #ffd7de; }
+
+.quick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+.quick-btn {
+  background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 16px 12px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+  font-size: 14px; font-weight: 700; text-align: left;
+}
+.quick-btn span { font-size: 24px; }
+.quick-btn small { font-weight: 400; color: var(--ink2); font-size: 12px; }
+
+.base-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.base-item:last-child { border-bottom: none; }
+.base-n { min-width: 44px; height: 44px; border-radius: 12px; background: #fde8ec; color: var(--accent2); display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; }
+.base-n small { font-size: 9px; font-weight: 600; }
+
+.today-card { border-left: 4px solid var(--accent); }
+
+/* ---- Roteiro ---- */
+.day-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 12px; overflow: hidden; }
+.day-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; width: 100%; text-align: left; }
+.day-num { min-width: 46px; height: 46px; border-radius: 13px; background: linear-gradient(145deg, var(--accent), var(--accent2)); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; line-height: 1; }
+.day-num small { font-size: 9px; font-weight: 600; opacity: .9; }
+.day-head-info { flex: 1; }
+.day-head-info b { font-size: 15px; display: block; }
+.day-head-info .muted { font-size: 12.5px; }
+.day-arrow { color: var(--ink2); transition: transform .2s; }
+.day-card.open .day-arrow { transform: rotate(90deg); }
+.day-body { display: none; padding: 0 16px 16px; }
+.day-card.open .day-body { display: block; }
+.period { border-left: 3px solid var(--line); padding: 2px 0 10px 12px; margin-left: 6px; position: relative; }
+.period::before { content: ""; position: absolute; left: -7px; top: 6px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); }
+.period b { font-size: 13px; color: var(--accent2); display: block; margin-bottom: 2px; }
+.period p { font-size: 13.5px; line-height: 1.5; }
+.day-meta { background: #f7f7fb; border-radius: 12px; padding: 10px 12px; font-size: 12.5px; margin-top: 10px; line-height: 1.5; }
+.day-places { margin-top: 12px; }
+.day-places h4 { font-size: 12px; text-transform: uppercase; letter-spacing: .6px; color: var(--ink2); margin-bottom: 8px; }
+
+/* ---- Place list items ---- */
+.place-item { display: flex; gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); width: 100%; text-align: left; }
+.place-item:last-child { border-bottom: none; }
+.pi-icon { min-width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 19px; }
+.pi-body { flex: 1; min-width: 0; }
+.pi-body b { font-size: 14px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pi-body small { color: var(--ink2); font-size: 12px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pi-right { text-align: right; font-size: 12px; color: var(--ink2); white-space: nowrap; }
+.pi-right .dist { font-weight: 700; color: var(--indigo); font-size: 13px; }
+.star { font-size: 18px; padding: 6px; }
+
+/* ---- Filtros ---- */
+.filters { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 10px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.filters::-webkit-scrollbar { display: none; }
+.fbtn { flex-shrink: 0; font-size: 12.5px; font-weight: 600; padding: 7px 12px; border-radius: 99px; background: var(--card); color: var(--ink2); box-shadow: var(--shadow); }
+.fbtn.active { background: var(--indigo); color: #fff; }
+
+/* ---- Mapa ---- */
+#map-filters { position: absolute; top: 10px; left: 10px; right: 56px; z-index: 800; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+#map-filters::-webkit-scrollbar { display: none; }
+#map-filters .fbtn { box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+#map-locate { position: absolute; bottom: 22px; right: 12px; z-index: 800; width: 46px; height: 46px; border-radius: 50%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.25); font-size: 20px; }
+.marker-pin { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50% 50% 50% 4px; transform: rotate(0); box-shadow: 0 2px 6px rgba(0,0,0,.3); font-size: 15px; border: 2px solid #fff; }
+.user-dot { width: 18px; height: 18px; border-radius: 50%; background: #2b7fff; border: 3px solid #fff; box-shadow: 0 0 0 6px rgba(43,127,255,.25); }
+.leaflet-popup-content { margin: 10px 12px; font-family: inherit; }
+.popup-title { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+.popup-actions { display: flex; gap: 6px; margin-top: 8px; }
+.popup-actions button, .popup-actions a { font-size: 12px; font-weight: 600; padding: 6px 10px; border-radius: 8px; background: #ededf4; color: var(--indigo); text-decoration: none; }
+
+/* ---- Sheet (detalhe do local) ---- */
+#sheet-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 950; }
+#sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 960;
+  background: var(--card); border-radius: 22px 22px 0 0;
+  max-height: 82vh; overflow-y: auto;
+  padding: 10px 18px calc(24px + env(safe-area-inset-bottom));
+  animation: sheetUp .25s ease;
+}
+@keyframes sheetUp { from { transform: translateY(60%); opacity: .4; } to { transform: none; opacity: 1; } }
+.sheet-handle { width: 40px; height: 4px; background: #d5d5de; border-radius: 4px; margin: 4px auto 14px; }
+.sheet-head { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
+.sheet-head .pi-icon { min-width: 48px; height: 48px; font-size: 24px; }
+.sheet-head h2 { font-size: 19px; line-height: 1.25; }
+.sheet-info { font-size: 13.5px; line-height: 1.6; color: var(--ink); margin: 10px 0; }
+.sheet-meta { font-size: 12.5px; color: var(--ink2); line-height: 1.7; }
+.sheet-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 14px 0 6px; }
+.sheet-actions a, .sheet-actions button {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 12px; border-radius: 12px; font-size: 13.5px; font-weight: 700;
+  background: #ededf4; color: var(--indigo); text-decoration: none;
+}
+.sheet-actions .primary { background: var(--accent); color: #fff; }
+.status-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.status-btn { font-size: 12px; font-weight: 600; padding: 7px 10px; border-radius: 99px; background: #ededf4; color: var(--ink2); }
+.status-btn.active { background: var(--indigo); color: #fff; }
+.note-box { width: 100%; min-height: 64px; border: 1px solid var(--line); border-radius: 12px; padding: 10px; font-size: 14px; margin-top: 8px; resize: vertical; }
+
+/* ---- Perto de mim ---- */
+.geo-banner { background: #fff7e6; border: 1px solid #ffe1a8; color: #7a5200; border-radius: 12px; padding: 12px 14px; font-size: 13px; margin-bottom: 12px; line-height: 1.5; }
+.geo-banner button { background: var(--accent); color: #fff; font-weight: 700; padding: 8px 14px; border-radius: 10px; margin-top: 8px; }
+
+/* ---- Cidades ---- */
+.city-tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
+.city-tabs::-webkit-scrollbar { display: none; }
+
+/* ---- Config / extras ---- */
+.acc { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 10px; overflow: hidden; }
+.acc-head { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 15px 16px; font-size: 15px; font-weight: 700; text-align: left; }
+.acc-body { display: none; padding: 0 16px 16px; }
+.acc.open .acc-body { display: block; }
+.check-item { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; font-size: 14px; border-bottom: 1px solid var(--line); }
+.check-item:last-child { border: none; }
+.check-item input { width: 20px; height: 20px; accent-color: var(--accent); margin-top: 1px; flex-shrink: 0; }
+.check-item.done label { text-decoration: line-through; color: var(--ink2); }
+.phrase { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.phrase:last-child { border: none; }
+.phrase b { font-size: 14px; display: block; }
+.phrase .jp { font-size: 16px; margin: 2px 0; }
+.phrase small { color: var(--ink2); }
+.conv-row { display: flex; gap: 8px; align-items: center; margin: 10px 0; }
+.conv-row input { flex: 1; height: 46px; border: 1px solid var(--line); border-radius: 12px; padding: 0 12px; font-size: 17px; }
+.conv-row span { font-weight: 800; font-size: 15px; min-width: 40px; }
+.emg-item { display: flex; justify-content: space-between; gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.emg-item:last-child { border: none; }
+.emg-item a { background: var(--accent); color: #fff; font-weight: 700; font-size: 13px; padding: 8px 14px; border-radius: 10px; text-decoration: none; white-space: nowrap; }
+.offline-badge { position: fixed; top: calc(var(--top-h) + env(safe-area-inset-top) + 6px); left: 50%; transform: translateX(-50%); z-index: 940; background: #333; color: #fff; font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 99px; box-shadow: 0 2px 10px rgba(0,0,0,.3); }
+.empty { text-align: center; color: var(--ink2); padding: 40px 20px; font-size: 14px; line-height: 1.6; }
+.empty span { font-size: 40px; display: block; margin-bottom: 10px; }
+.section-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .8px; color: var(--ink2); margin: 18px 4px 8px; }
