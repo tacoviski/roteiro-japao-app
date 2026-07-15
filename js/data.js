@@ -24,6 +24,7 @@ const TRIP = {
     "Crie um Suica na Apple Wallet (Wallet > + > Cartão de Transporte) antes de embarcar.",
     "Malas com L+A+P > 160cm exigem reserva de espaço no Shinkansen — ou use o envio Takkyubin entre hotéis.",
     "Daikoku PA (encontro de carros, sexta à noite) NÃO tem acesso a pé/transporte público — reserve um tour guiado com antecedência (dia 1 ou dia 15).",
+    "Habilitação brasileira NÃO vale no Japão (nem com PID) — não dá para alugar carro, dirigir JDM ou pilotar os go-karts de rua. Experiências automotivas: só como passageiro (tours).",
   ],
 };
 
@@ -144,6 +145,12 @@ const PLACES = [
     desc: "SUGESTÃO EXTRA: o 'irmão menor' do Daikoku na via expressa Shuto, com vista do skyline de Tóquio — encontros menores e mais locais, madrugada de sexta para sábado. Também SÓ acessível de carro; muitos tours de Daikoku incluem parada aqui na mesma noite.", addr: "Tatsumi, Koto City", hours: "Noites de sex/sáb" },
   { id: "nissan-crossing", nome: "Nissan Crossing (Ginza)", cidade: "Tóquio", cat: "atividade", lat: 35.6709, lng: 139.7637, roteiro: true, dias: [6], rating: 4.4,
     desc: "Showroom-galeria da Nissan no cruzamento principal de Ginza: GT-R, protótipos e clássicos em exposições rotativas, com café que desenha o carro que você escolher na espuma do latte. GRÁTIS — parada rápida (~30–45 min) que encaixa na manhã de Ginza.", addr: "Ginza Place, 5-8-1 Ginza, Chuo", hours: "10h–20h", preco: "Grátis" },
+  { id: "apit", nome: "A PIT Autobacs Shinonome (peças & JDM)", cidade: "Tóquio", cat: "compras", lat: 35.6472, lng: 139.804, roteiro: true, dias: [6], rating: 4.4,
+    desc: "A 'meca' das lojas de carro do Japão: megastore da Autobacs com peças de tuning, rodas, miniaturas, roupas e café automotivo — e carros interessantes estacionando o tempo todo. Fica em Shinonome, pertinho de Toyosu: encaixa como parada antes/depois do teamLab Planets no dia 6.", addr: "2-7-20 Shinonome, Koto", hours: "9h–21h", preco: "Grátis (entrada)" },
+  { id: "nismo-showroom", nome: "NISMO Showroom (Omori Factory)", cidade: "Tóquio", cat: "atividade", lat: 35.4776, lng: 139.686, roteiro: false, rating: 4.5, fecha: [1, 2, 3, 4, 5],
+    desc: "SUGESTÃO EXTRA: o quartel-general da NISMO em Yokohama — showroom GRÁTIS com carros de corrida históricos, GT-Rs e loja de peças/souvenirs oficiais. SÓ ABRE FIM DE SEMANA (10h–17h): na viagem, cabe no sáb (dia 2) ou dom (dia 3) — ~45 min de trem de Tóquio (estação Tsurumi + ônibus). Confirme o calendário no site antes.", addr: "6-1 Daikokucho, Tsurumi, Yokohama", hours: "Sáb/dom 10h–17h", preco: "Grátis" },
+  { id: "nissan-hq", nome: "Nissan Global HQ Gallery (Yokohama)", cidade: "Tóquio", cat: "atividade", lat: 35.4646, lng: 139.6247, roteiro: false, rating: 4.4,
+    desc: "SUGESTÃO EXTRA: galeria GRATUITA na sede mundial da Nissan, colada na estação Yokohama (~30 min de Tóquio): novos modelos, carros históricos e de corrida, boutique com itens NISMO e café. Pode entrar nos carros! Combina com o NISMO Showroom num 'desvio Yokohama' de meio dia.", addr: "1-1-1 Takashima, Nishi-ku, Yokohama", hours: "10h–20h", preco: "Grátis" },
   // Tóquio — restaurantes/cafés
   { id: "ichiran", nome: "Ichiran Shibuya", cidade: "Tóquio", cat: "restaurante", lat: 35.6614, lng: 139.7009, roteiro: true, dias: [3], rating: 4.5,
     desc: "O famoso ramen tonkotsu em cabines individuais — peça pelo ticket na máquina.", addr: "1-22-7 Jinnan, Shibuya", hours: "24h", preco: "~¥1.500" },
@@ -240,6 +247,8 @@ const PLACES = [
     desc: "O museu sobre o bombardeio de 1945 — essencial, forte e educativo.", addr: "1-2 Nakajimacho, Naka", hours: "8h30–19h (verão)", preco: "¥200" },
   { id: "okonomimura", nome: "Okonomimura", cidade: "Hiroshima", cat: "restaurante", lat: 34.3907, lng: 132.462, roteiro: true, dias: [11], rating: 4.4,
     desc: "Prédio inteiro dedicado ao okonomiyaki estilo Hiroshima (com lámen na massa!) — dezenas de bancas.", addr: "5-13 Shintenchi, Naka", hours: "11h–22h", preco: "~¥1.200" },
+  { id: "mazda-museum", nome: "Mazda Museum (fábrica da Mazda)", cidade: "Hiroshima", cat: "atividade", lat: 34.3717, lng: 132.5, roteiro: false, rating: 4.6, fecha: [0, 6],
+    desc: "SUGESTÃO EXTRA para o fã de carros: o museu da Mazda DENTRO da fábrica, com o 787B vencedor de Le Mans, a história do motor rotativo (RX-7!) e vista da linha de montagem. GRÁTIS, mas SÓ por tour guiado com RESERVA ONLINE (abre 3 meses antes; tour em inglês às 10h, seg–sex). O dia 11 (seg 03/08) funciona: Shinkansen cedo de Kyoto (~7h), tour 10h–11h30 (estação Mukainada, 2 paradas da Hiroshima Station), Peace Park à tarde e ferry a Miyajima no fim do dia — dia cheio, mas viável.", addr: "3-1 Shinchi, Fuchu-cho, Aki-gun", hours: "Tours seg–sex (inglês 10h)", preco: "Grátis (reserva obrigatória)" },
   { id: "hiroshimacastle", nome: "Castelo de Hiroshima", cidade: "Hiroshima", cat: "turismo", lat: 34.4027, lng: 132.4595, roteiro: false, rating: 4.3,
     desc: "SUGESTÃO EXTRA: reconstrução do castelo 'Carpa' com museu e vista do topo — 15 min a pé do Peace Park, se sobrar tempo antes do ferry.", addr: "21-1 Motomachi, Naka", hours: "9h–18h", preco: "¥370" },
   { id: "hiroshima-sta", nome: "Estação Hiroshima", cidade: "Hiroshima", cat: "transporte", lat: 34.3978, lng: 132.4754, roteiro: true, dias: [11, 12],
@@ -290,6 +299,8 @@ const PLACES = [
     desc: "SUGESTÃO EXTRA: observatório flutuante com vista 360° — ótimo plano B de chuva junto com os shoppings de Umeda.", addr: "1-1-88 Oyodonaka, Kita", hours: "9h30–22h30", preco: "¥2.000" },
   { id: "shinsekai", nome: "Shinsekai & Tsutenkaku", cidade: "Osaka", cat: "turismo", lat: 34.6525, lng: 135.5063, roteiro: false, rating: 4.4,
     desc: "SUGESTÃO EXTRA: bairro retrô com a torre Tsutenkaku e os kushikatsu originais — Osaka 'raiz'.", addr: "Ebisuhigashi, Naniwa", hours: "24h", preco: "Grátis" },
+  { id: "glion", nome: "GLION Museum (carros clássicos)", cidade: "Osaka", cat: "atividade", lat: 34.6563, lng: 135.4303, roteiro: false, rating: 4.4, fecha: [1],
+    desc: "SUGESTÃO EXTRA: museu de ~80 carros clássicos raros em armazéns históricos de tijolo vermelho no porto de Osaka (Tempozan, ao lado do aquário Kaiyukan). Clima 'vintage romance' + café/steakhouse no complexo. Fecha às segundas.", addr: "2-6-39 Kaigandori, Minato", hours: "11h–17h (fecha seg)", preco: "¥1.300" },
   { id: "kaiyukan", nome: "Aquário Kaiyukan", cidade: "Osaka", cat: "atividade", lat: 34.6545, lng: 135.429, roteiro: false, rating: 4.6,
     desc: "SUGESTÃO EXTRA: um dos maiores aquários do mundo, com tubarões-baleia num tanque gigante de 9m de profundidade. Fica na baía, perto da USJ — plano B de chuva excelente.", addr: "1-1-10 Kaigandori, Minato", hours: "10h–20h", preco: "¥2.700" },
   { id: "harukas", nome: "Abeno Harukas 300", cidade: "Osaka", cat: "turismo", lat: 34.6462, lng: 135.5133, roteiro: false, rating: 4.5,
@@ -357,11 +368,11 @@ const DAYS = [
     periodos: [
       { t: "Manhã (9h–12h)", desc: "Ginza: flagships Uniqlo (12 andares) e Muji, grifes e a papelaria Itoya. Parada rápida no Nissan Crossing (showroom grátis com GT-R e clássicos, no cruzamento principal)." },
       { t: "Tarde (12h–15h)", desc: "Tsukiji Outer Market: comida de rua e frutos do mar fresquíssimos no almoço." },
-      { t: "Tarde/Noite (15h–20h)", desc: "Odaiba pelo trem panorâmico Yurikamome: teamLab Planets (reserve!), Gundam do DiverCity e vista noturna do Rainbow Bridge." },
+      { t: "Tarde/Noite (15h–20h)", desc: "Odaiba pelo trem panorâmico Yurikamome: teamLab Planets (reserve!), Gundam do DiverCity e vista noturna do Rainbow Bridge. Para o fã de carros: a megaloja A PIT Autobacs Shinonome fica a ~15 min a pé do teamLab." },
     ],
     transporte: "Metrô + Yurikamome (Odaiba)",
     obs: "teamLab exige reserva com horário. Alternativa: mais tempo em Ginza/Nihonbashi.",
-    places: ["ginza", "itoya", "nissan-crossing", "tsukiji", "teamlab", "divercity"] },
+    places: ["ginza", "itoya", "nissan-crossing", "tsukiji", "teamlab", "apit", "divercity"] },
   { d: 7, date: "2026-07-30", dow: "qui", cidade: "Tóquio → Kyoto", titulo: "Shinkansen para Kyoto", prioridade: "Imperdível (transição)",
     periodos: [
       { t: "Manhã", desc: "Livre em Tóquio: Ikebukuro (Pokémon Center Mega + Animate), Nakano Broadway (colecionáveis) ou compras finais." },
@@ -396,7 +407,7 @@ const DAYS = [
       { t: "Noite (17h–21h)", desc: "Retorno a Kyoto. Jantar e compras gastronômicas no Nishiki Market ('a cozinha de Kyoto')." },
     ],
     transporte: "JR Nara Line ou Kintetsu (Kyoto ⇄ Nara, ~45 min)",
-    obs: "Meio dia inteiro (5–6h) é suficiente para os destaques de Nara.",
+    obs: "Meio dia inteiro (5–6h) é suficiente para os destaques de Nara. Superfã de corrida? A Rodada 4 do SUPER GT acontece HOJE no Fuji Speedway (31/07–02/08) — mas é bate-volta longo de Kyoto (~3h por trecho) e sacrifica Nara; só vale para muito fanático (ingressos: supergt.net).",
     places: ["kintetsu-nara", "narapark", "todaiji", "kasuga", "nakatanidou", "nishiki"] },
   { d: 11, date: "2026-08-03", dow: "seg", cidade: "Kyoto → Hiroshima → Miyajima", titulo: "Hiroshima e pernoite em Miyajima", prioridade: "Imperdível",
     periodos: [
@@ -405,8 +416,8 @@ const DAYS = [
       { t: "Fim de tarde/Noite", desc: "Trem até Miyajimaguchi (~30 min) + ferry (~10 min). Torii flutuante na maré alta ao entardecer. Check-in no ryokan e ilha só sua à noite." },
     ],
     transporte: "Shinkansen Sanyo + JR Sanyo Line + Ferry JR",
-    obs: "Pernoitar em Miyajima é o grande diferencial — torii iluminado sem multidões.",
-    places: ["hiroshima-sta", "peacepark", "peacemuseum", "okonomimura", "hiroshimacastle", "miyajimaguchi", "itsukushima", "ryokan-miyajima"] },
+    obs: "Pernoitar em Miyajima é o grande diferencial — torii iluminado sem multidões. Fã de carros: o Mazda Museum (787B de Le Mans, motor rotativo) cabe neste dia ANTES do Peace Park, mas exige Shinkansen cedo (~7h) e reserva feita 3 meses antes (tour inglês 10h).",
+    places: ["hiroshima-sta", "mazda-museum", "peacepark", "peacemuseum", "okonomimura", "hiroshimacastle", "miyajimaguchi", "itsukushima", "ryokan-miyajima"] },
   { d: 12, date: "2026-08-04", dow: "ter", cidade: "Miyajima → Osaka", titulo: "Monte Misen e chegada em Osaka", prioridade: "Imperdível",
     periodos: [
       { t: "Manhã (7h–11h)", desc: "Ilha cedo, antes dos turistas: Itsukushima na maré baixa (dá para andar até o torii — veja a tábua de marés), ropeway ao Monte Misen. Compre momiji manju." },
@@ -432,7 +443,7 @@ const DAYS = [
     ],
     transporte: "Metrô Osaka — linhas Midosuji/Chuo",
     obs: "Melhor dia para eletrônicos em Den Den Town. Extra: Pokémon Center Osaka fica em Umeda (Daimaru).",
-    places: ["osakacastle", "shinsaibashi", "dendentown", "dotonbori", "daruma", "kanidoraku", "hozenji", "mizuno", "pokemon-osaka", "shinsekai", "nambayasaka", "harukas"] },
+    places: ["osakacastle", "shinsaibashi", "dendentown", "dotonbori", "daruma", "kanidoraku", "hozenji", "mizuno", "pokemon-osaka", "shinsekai", "nambayasaka", "harukas", "glion"] },
   { d: 15, date: "2026-08-07", dow: "sex", cidade: "Osaka → Tóquio", titulo: "Kuromon Ichiba e retorno a Tóquio", prioridade: "Transição (leve)", leve: true,
     periodos: [
       { t: "Manhã (9h–12h)", desc: "Kuromon Ichiba Market: wagyu na hora, frutos do mar e frutas premium. Alternativa: compras finais em Shinsaibashi ou Umeda." },
@@ -501,6 +512,7 @@ const CHECKLIST = [
     "teamLab Planets (horário marcado)",
     "Restaurantes especiais (kaiseki, Pokémon Café)",
     "Tour Daikoku PA — encontro de carros (sexta 24/07 OU 07/08, à noite)",
+    "Opcional: Mazda Museum Hiroshima — tour inglês 10h de seg 03/08 (reserva abre 3 meses antes)",
     "eSIM (Ubigi/Airalo) ou Pocket WiFi",
     "Seguro viagem",
   ]},
@@ -616,6 +628,9 @@ const LINKS = [
   { n: "Pokémon Café — reservas", url: "https://reserve.pokemon-cafe.jp/", d: "Reserva obrigatória, abre com semanas de antecedência" },
   { n: "Daikoku PA — tours guiados", url: "https://daikokutour.com/", d: "Encontro de carros JDM (sexta à noite, dia 1 ou 15) — acesso só de carro, reserve o tour antes" },
   { n: "Daikoku PA — tours no Viator", url: "https://www.viator.com/searchResults/all?text=Daikoku", d: "Alternativa para comparar operadores/preços do tour noturno" },
+  { n: "Mazda Museum — reservas", url: "https://www.mazda.com/en/experience/museum/reservations/", d: "Tour grátis na fábrica (787B de Le Mans!) — reserva online abre 3 meses antes; inglês 10h, seg–sex" },
+  { n: "SUPER GT — Rodada 4 em Fuji", url: "https://supergt.net/en/", d: "31/07–02/08/2026 no Fuji Speedway — coincide com os dias 8–10 (base em Kyoto); bate-volta longo, para superfãs" },
+  { n: "NISMO Showroom — calendário", url: "https://www.nismo.co.jp/en/omori_factory/index_en.html", d: "Confirme os dias abertos (só fins de semana) antes do desvio a Yokohama" },
 ];
 
 const ETIQUETA = [
