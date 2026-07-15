@@ -28,7 +28,7 @@ const TRIP = {
   ],
 };
 
-const CIDADES = ["Tóquio", "Kyoto", "Nara", "Hiroshima", "Miyajima", "Osaka"];
+const CIDADES = ["Tóquio", "Nagoya", "Kyoto", "Nara", "Hiroshima", "Miyajima", "Osaka"];
 
 const CATS = {
   turismo:     { label: "Pontos turísticos", icon: "⛩️", cor: "#e0344e" },
@@ -181,6 +181,12 @@ const PLACES = [
     desc: "JR Keiyo Line desde Tokyo Station (~15–20 min) + Disney Resort Line até o DisneySea." },
   { id: "hotel-tokyo", nome: "Base: hotel em Shinjuku/Shibuya", cidade: "Tóquio", cat: "hospedagem", lat: 35.69, lng: 139.7005, roteiro: true,
     desc: "6 noites (24–30/07) + 1 noite (07–08/08). Fique perto de uma estação da Yamanote. Cadeias com bom custo-benefício: Toyoko Inn, APA, Dormy Inn." },
+
+  // ================= NAGOYA (parada dia 7) =================
+  { id: "libertywalk", nome: "Liberty Walk HQ (LBWK)", cidade: "Nagoya", cat: "atividade", lat: 35.2095, lng: 137.0125, roteiro: true, dias: [7], rating: 4.7, fecha: [1, 2],
+    desc: "A sede mundial da Liberty Walk, do lendário Kato-san: showroom GRATUITO com os demo cars LB★WORKS (Lamborghinis, GT-R, Supra de fenda larga), kaido racers, loja de miniaturas/roupas oficiais e café da marca. Fecha seg/ter — o dia 7 (qui) está OK. Fica em Owariasahi, ~45 min da estação de Nagoya: JR Chuo até Ozone (~10 min) + Meitetsu Seto Line até Sangō (~15 min) + 10–15 min a pé.", addr: "1-178 Setogawa-cho, Owariasahi, Aichi", hours: "10h–19h (fecha seg/ter)", preco: "Grátis" },
+  { id: "nagoya-sta", nome: "Estação Nagoya", cidade: "Nagoya", cat: "transporte", lat: 35.1709, lng: 136.8815, roteiro: true, dias: [7],
+    desc: "Parada do Shinkansen Tokaido entre Tóquio (~1h40) e Kyoto (~35 min). Guarde a mala grande nos coin lockers da estação (ou envie por Takkyubin direto a Kyoto) durante a visita à Liberty Walk." },
 
   // ================= KYOTO =================
   { id: "fushimi", nome: "Fushimi Inari Taisha", cidade: "Kyoto", cat: "turismo", lat: 34.9671, lng: 135.7727, roteiro: true, dias: [8], rating: 4.8,
@@ -373,15 +379,16 @@ const DAYS = [
     transporte: "Metrô + Yurikamome (Odaiba)",
     obs: "teamLab exige reserva com horário. Alternativa: mais tempo em Ginza/Nihonbashi.",
     places: ["ginza", "itoya", "nissan-crossing", "tsukiji", "teamlab", "apit", "divercity"] },
-  { d: 7, date: "2026-07-30", dow: "qui", cidade: "Tóquio → Kyoto", titulo: "Shinkansen para Kyoto", prioridade: "Imperdível (transição)",
+  { d: 7, date: "2026-07-30", dow: "qui", cidade: "Tóquio → Nagoya → Kyoto", titulo: "Liberty Walk (Nagoya) e chegada em Kyoto", prioridade: "Imperdível (transição)",
     periodos: [
-      { t: "Manhã", desc: "Livre em Tóquio: Ikebukuro (Pokémon Center Mega + Animate), Nakano Broadway (colecionáveis) ou compras finais." },
-      { t: "Tarde", desc: "Shinkansen Tokaido Tóquio → Kyoto (Nozomi ~2h15). Compre assento reservado pelo app SmartEX." },
-      { t: "Noite", desc: "Check-in em Kyoto e caminhada por Gion ao entardecer — as ruas de madeira iluminadas são lindas." },
+      { t: "Manhã (8h30–11h)", desc: "Check-out e Shinkansen Tóquio → Nagoya (~1h40). Mala grande: envie por Takkyubin direto a Kyoto na véspera, ou use os coin lockers da estação de Nagoya." },
+      { t: "Tarde (11h30–15h)", desc: "Liberty Walk HQ em Owariasahi (~45 min da estação: JR Chuo até Ozone + Meitetsu Seto até Sangō + 10 min a pé): demo cars LB★WORKS, loja de miniaturas e café da marca. Almoço no café ou na volta, na estação de Nagoya (miso katsu!)." },
+      { t: "Fim de tarde (15h30–17h)", desc: "Shinkansen Nagoya → Kyoto (~35 min) e check-in no hotel." },
+      { t: "Noite", desc: "Caminhada por Gion ao entardecer — as ruas de madeira iluminadas são lindas." },
     ],
-    transporte: "Shinkansen Tokaido (Tóquio/Shinagawa → Kyoto)",
-    obs: "Mala grande? Envie por Takkyubin (chega no dia seguinte) e viaje só com mochila.",
-    places: ["pokemon-mega", "animate-ikebukuro", "nakano", "tokyostation", "gion", "hotel-kyoto"] },
+    transporte: "Shinkansen Tokaido em 2 trechos (Tóquio → Nagoya → Kyoto, compre os dois no SmartEX); em Nagoya: JR Chuo (Ozone) + Meitetsu Seto (Sangō)",
+    obs: "LBWK fecha seg/ter — quinta OK, mas confira o Instagram/site antes (fecham em feriados). Sem interesse na parada? Alternativa original: manhã em Ikebukuro (Pokémon Mega + Animate) ou Nakano Broadway e trem direto a Kyoto (~2h15).",
+    places: ["libertywalk", "nagoya-sta", "pokemon-mega", "animate-ikebukuro", "nakano", "tokyostation", "gion", "hotel-kyoto"] },
   { d: 8, date: "2026-07-31", dow: "sex", cidade: "Kyoto", titulo: "Fushimi Inari, Kiyomizu-dera e Gion", prioridade: "Imperdível",
     periodos: [
       { t: "Manhã (7h–10h)", desc: "Fushimi Inari Taisha — os mil torii. VÁ O MAIS CEDO POSSÍVEL (7h). Suba até o Yotsutsuji (~1h ida e volta). Grátis." },
@@ -471,6 +478,11 @@ const CITY_INFO = {
     transporte: "Metrô Tokyo Metro + Toei Subway. A linha JR Yamanote (circular) é a espinha dorsal e conecta os principais bairros. Use Suica para tudo.",
     bairros: "Asakusa (tradicional), Akihabara (otaku), Shibuya/Harajuku (jovem), Shinjuku (neon e compras), Ginza (luxo), Odaiba (futurista), Ikebukuro (anime/Pokémon).",
     dicas: ["Suica na Apple Wallet resolve trem, metrô, ônibus e konbini.", "Lojas tax-free acima de ¥5.000 — ande com o passaporte.", "Konbini (7-Eleven, Lawson, FamilyMart) = comida boa e barata 24h."],
+  },
+  "Nagoya": {
+    transporte: "Parada de ~4h no caminho Tóquio → Kyoto (dia 7). Do Shinkansen: JR Chuo Line até Ozone (~10 min) + Meitetsu Seto Line até Sangō (~15 min) para a Liberty Walk.",
+    bairros: "Região da estação (Meieki) para almoço e compras rápidas; Owariasahi (Liberty Walk HQ).",
+    dicas: ["Prove o miso katsu (tonkatsu com molho de missô escuro) — especialidade local; Yabaton é a casa famosa, com filial na estação.", "Coin lockers grandes ficam na saída central do Shinkansen — deixe a mala e circule leve.", "LBWK fecha seg/ter e em feriados — confirme no site/Instagram antes de descer do trem."],
   },
   "Kyoto": {
     transporte: "Predominantemente ônibus municipal (Kyoto City Bus) — considere o passe diário. JR Nara Line para Fushimi Inari e Nara; trem/ônibus para Arashiyama.",
@@ -631,6 +643,7 @@ const LINKS = [
   { n: "Mazda Museum — reservas", url: "https://www.mazda.com/en/experience/museum/reservations/", d: "Tour grátis na fábrica (787B de Le Mans!) — reserva online abre 3 meses antes; inglês 10h, seg–sex" },
   { n: "SUPER GT — Rodada 4 em Fuji", url: "https://supergt.net/en/", d: "31/07–02/08/2026 no Fuji Speedway — coincide com os dias 8–10 (base em Kyoto); bate-volta longo, para superfãs" },
   { n: "NISMO Showroom — calendário", url: "https://www.nismo.co.jp/en/omori_factory/index_en.html", d: "Confirme os dias abertos (só fins de semana) antes do desvio a Yokohama" },
+  { n: "Liberty Walk HQ (Nagoya)", url: "https://libertywalk.co.jp/nagoya-head-quarter/", d: "Parada do dia 7 — confirme horários/fechamentos antes (fecha seg/ter e feriados)" },
 ];
 
 const ETIQUETA = [
