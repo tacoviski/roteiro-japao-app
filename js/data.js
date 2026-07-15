@@ -23,6 +23,7 @@ const TRIP = {
     "JR Pass nacional NÃO compensa neste roteiro — compre trechos avulsos de Shinkansen (app SmartEX).",
     "Crie um Suica na Apple Wallet (Wallet > + > Cartão de Transporte) antes de embarcar.",
     "Malas com L+A+P > 160cm exigem reserva de espaço no Shinkansen — ou use o envio Takkyubin entre hotéis.",
+    "Daikoku PA (encontro de carros, sexta à noite) NÃO tem acesso a pé/transporte público — reserve um tour guiado com antecedência (dia 1 ou dia 15).",
   ],
 };
 
@@ -51,7 +52,7 @@ const PLACES = [
   // ================= TÓQUIO — turismo =================
   { id: "sensoji", nome: "Senso-ji", cidade: "Tóquio", cat: "turismo", lat: 35.7148, lng: 139.7967, roteiro: true, dias: [1, 2], rating: 4.7,
     desc: "O templo mais antigo de Tóquio. Chegue antes das 9h para fotos sem multidão; lindo iluminado à noite.", addr: "2-3-1 Asakusa, Taito City", hours: "Templo 6h–17h; área externa 24h", preco: "Grátis" },
-  { id: "nakamise", nome: "Nakamise-dori", cidade: "Tóquio", cat: "compras", lat: 35.7118, lng: 139.7965, roteiro: true, dias: [1, 2], rating: 4.5,
+  { id: "nakamise", nome: "Nakamise-dori", cidade: "Tóquio", cat: "compras", lat: 35.7118, lng: 139.7965, roteiro: true, dias: [2], rating: 4.5,
     desc: "Rua comercial com +90 lojinhas de artesanato, doces tradicionais e souvenirs, ligando o portão Kaminarimon ao Senso-ji.", addr: "1-36-3 Asakusa, Taito City", hours: "~9h–19h" },
   { id: "ueno", nome: "Parque de Ueno", cidade: "Tóquio", cat: "turismo", lat: 35.7156, lng: 139.7745, roteiro: true, dias: [2], rating: 4.5,
     desc: "Grande parque com museus, templos e lagos. O Museu Nacional de Tóquio fica dentro (~1h30–2h).", addr: "Uenokoen, Taito City", hours: "5h–23h", preco: "Grátis (museus pagos)" },
@@ -136,6 +137,13 @@ const PLACES = [
     desc: "Loja de departamento caótica e maravilhosa: cosméticos, doces, eletrônicos, souvenirs bizarros. Tax-free. Aberta até tarde.", addr: "1-16-5 Kabukicho", hours: "24h" },
   { id: "cosme", nome: "@cosme Tokyo (Harajuku)", cidade: "Tóquio", cat: "compras", lat: 35.6706, lng: 139.7026, roteiro: true, dias: [3], rating: 4.4,
     desc: "Curadoria dos cosméticos japoneses mais bem avaliados — ótimo para testar antes de comprar.", addr: "1-14-27 Jingumae", hours: "11h–21h" },
+  // Tóquio/Yokohama — cultura automotiva
+  { id: "daikoku", nome: "Daikoku PA — encontro de carros JDM", cidade: "Tóquio", cat: "atividade", lat: 35.4599, lng: 139.6807, roteiro: true, dias: [1, 15], rating: 4.7,
+    desc: "O encontro de carros mais famoso do mundo, numa área de descanso da via expressa na baía de Yokohama: Skylines, RX-7, Supras, kaido racers, supercarros. Sexta e sábado à noite — carros chegam ~21h–22h, pico 23h–1h. ATENÇÃO: só é acessível DE CARRO (sem trem, ônibus ou pedestres); para turista, o caminho é tour guiado saindo de Tóquio (~¥15.000–25.000/pessoa, com busca no hotel — alguns levam você num R34/RX-7/Supra). Táxi custa ¥8.000–15.000 por trecho e é difícil conseguir a volta. A polícia às vezes fecha o PA quando lota — tours têm pontos alternativos. As duas sextas possíveis: dia 1 (24/07) ou dia 15 (07/08).", addr: "Daikokufuto 15, Tsurumi, Yokohama", hours: "PA 24h; encontros sex/sáb ~21h–2h", preco: "Tour ~¥15.000–25.000" },
+  { id: "tatsumi-pa", nome: "Tatsumi PA — encontro de carros (Wangan)", cidade: "Tóquio", cat: "atividade", lat: 35.6444, lng: 139.8129, roteiro: false, rating: 4.3,
+    desc: "SUGESTÃO EXTRA: o 'irmão menor' do Daikoku na via expressa Shuto, com vista do skyline de Tóquio — encontros menores e mais locais, madrugada de sexta para sábado. Também SÓ acessível de carro; muitos tours de Daikoku incluem parada aqui na mesma noite.", addr: "Tatsumi, Koto City", hours: "Noites de sex/sáb" },
+  { id: "nissan-crossing", nome: "Nissan Crossing (Ginza)", cidade: "Tóquio", cat: "atividade", lat: 35.6709, lng: 139.7637, roteiro: true, dias: [6], rating: 4.4,
+    desc: "Showroom-galeria da Nissan no cruzamento principal de Ginza: GT-R, protótipos e clássicos em exposições rotativas, com café que desenha o carro que você escolher na espuma do latte. GRÁTIS — parada rápida (~30–45 min) que encaixa na manhã de Ginza.", addr: "Ginza Place, 5-8-1 Ginza, Chuo", hours: "10h–20h", preco: "Grátis" },
   // Tóquio — restaurantes/cafés
   { id: "ichiran", nome: "Ichiran Shibuya", cidade: "Tóquio", cat: "restaurante", lat: 35.6614, lng: 139.7009, roteiro: true, dias: [3], rating: 4.5,
     desc: "O famoso ramen tonkotsu em cabines individuais — peça pelo ticket na máquina.", addr: "1-22-7 Jinnan, Shibuya", hours: "24h", preco: "~¥1.500" },
@@ -242,7 +250,7 @@ const PLACES = [
     desc: "Um dos cartões-postais do Japão. Maré alta = torii 'flutuando'; maré baixa = dá para caminhar até ele. Confira a tábua de marés! Iluminado à noite.", addr: "1-1 Miyajimacho, Hatsukaichi", hours: "6h30–18h", preco: "¥300" },
   { id: "misen", nome: "Monte Misen (Ropeway)", cidade: "Miyajima", cat: "atividade", lat: 34.2926, lng: 132.3237, roteiro: true, dias: [12], rating: 4.6,
     desc: "Teleférico + caminhada até o topo: vista panorâmica da Baía de Hiroshima. Alternativa: trilha (~1h30–2h subida).", addr: "Momijidani Park", hours: "9h–16h30", preco: "~¥2.000 ida e volta" },
-  { id: "miyajima-omotesando", nome: "Omotesando (rua comercial de Miyajima)", cidade: "Miyajima", cat: "compras", lat: 34.3005, lng: 132.3218, roteiro: true, dias: [11, 12], rating: 4.4,
+  { id: "miyajima-omotesando", nome: "Omotesando (rua comercial de Miyajima)", cidade: "Miyajima", cat: "compras", lat: 34.3005, lng: 132.3218, roteiro: true, dias: [12], rating: 4.4,
     desc: "Rua principal da ilha: momiji manju (doce símbolo local), anago-meshi (enguia sobre arroz), shamoji (espátulas de arroz), laca e madeira.", addr: "Miyajimacho", hours: "~9h30–18h" },
   { id: "anagomeshi", nome: "Anagomeshi Ueno", cidade: "Miyajima", cat: "restaurante", lat: 34.3122, lng: 132.302, roteiro: false, rating: 4.5,
     desc: "SUGESTÃO EXTRA: a casa centenária (1901) do anago-meshi — enguia-do-mar grelhada sobre arroz, a especialidade de Miyajima. Fica ao lado da estação Miyajimaguchi; perfeita no almoço do dia 12 antes do trem. O bentō para viagem é lendário.", addr: "1-5-11 Miyajimaguchi, Hatsukaichi", hours: "10h–19h", preco: "~¥2.700" },
@@ -305,10 +313,11 @@ const DAYS = [
       { t: "Manhã (9h30–14h)", desc: "Sanrio Puroland em Tama (~45 min de Shinjuku pela linha Keio até Keio-Tama-Center): shows da Hello Kitty e amigos, atrações indoor, comida temática e compras. Ingresso com horário marcado — compre online antes." },
       { t: "Tarde (15h30–18h)", desc: "De volta ao centro: Tokyo Tower e o templo Zojo-ji ao lado — a foto clássica do templo com a torre atrás. Suba ao deck principal (150m) no fim da tarde." },
       { t: "Noite (18h–21h)", desc: "Torre iluminada + jantar na região (Azabudai/Roppongi) ou perto do hotel. Alternativa tranquila: Senso-ji iluminado em Asakusa, como aquecimento para o dia 2." },
+      { t: "Madrugada (opcional, 22h–2h)", desc: "SEXTA À NOITE = Daikoku PA, o encontro de carros mais famoso do mundo (Yokohama). Só de tour guiado com busca no hotel (~¥15.000–25.000) — reserve com antecedência. Se o jet lag pesar, a outra sexta é o dia 15 (07/08)." },
     ],
     transporte: "Keio Line: Shinjuku → Keio-Tama-Center (~40 min); volta + metrô Ōedo até Akabanebashi (Tokyo Tower)",
-    obs: "Puroland é todo coberto (ótimo para qualquer clima) e menos cheio em dia de semana. Confirme o horário da data no site oficial e compre o ingresso datado com antecedência.",
-    places: ["sanrio", "tokyotower", "zojoji", "sensoji", "hotel-tokyo"] },
+    obs: "Puroland é todo coberto (ótimo para qualquer clima) e menos cheio em dia de semana. Confirme o horário da data no site oficial e compre o ingresso datado com antecedência. Daikoku: escolha entre esta sexta e a do dia 15 — reserve o tour da que escolher.",
+    places: ["sanrio", "tokyotower", "zojoji", "sensoji", "daikoku", "hotel-tokyo"] },
   { d: 2, date: "2026-07-25", dow: "sáb", cidade: "Tóquio", titulo: "Asakusa, Ueno e Akihabara", prioridade: "Imperdível",
     periodos: [
       { t: "Manhã (9h–12h)", desc: "Senso-ji cedo (antes das 9h) + Nakamise-dori: 90 lojinhas de artesanato e doces. ~2h." },
@@ -346,13 +355,13 @@ const DAYS = [
     places: ["shinjukugyoen", "tocho", "donki-shinjuku", "biccamera", "omoide", "kabukicho", "hoshino"] },
   { d: 6, date: "2026-07-29", dow: "qua", cidade: "Tóquio", titulo: "Ginza, Tsukiji e Odaiba", prioridade: "Muito recomendado",
     periodos: [
-      { t: "Manhã (9h–12h)", desc: "Ginza: flagships Uniqlo (12 andares) e Muji, grifes e a papelaria Itoya." },
+      { t: "Manhã (9h–12h)", desc: "Ginza: flagships Uniqlo (12 andares) e Muji, grifes e a papelaria Itoya. Parada rápida no Nissan Crossing (showroom grátis com GT-R e clássicos, no cruzamento principal)." },
       { t: "Tarde (12h–15h)", desc: "Tsukiji Outer Market: comida de rua e frutos do mar fresquíssimos no almoço." },
       { t: "Tarde/Noite (15h–20h)", desc: "Odaiba pelo trem panorâmico Yurikamome: teamLab Planets (reserve!), Gundam do DiverCity e vista noturna do Rainbow Bridge." },
     ],
     transporte: "Metrô + Yurikamome (Odaiba)",
     obs: "teamLab exige reserva com horário. Alternativa: mais tempo em Ginza/Nihonbashi.",
-    places: ["ginza", "itoya", "tsukiji", "teamlab", "divercity"] },
+    places: ["ginza", "itoya", "nissan-crossing", "tsukiji", "teamlab", "divercity"] },
   { d: 7, date: "2026-07-30", dow: "qui", cidade: "Tóquio → Kyoto", titulo: "Shinkansen para Kyoto", prioridade: "Imperdível (transição)",
     periodos: [
       { t: "Manhã", desc: "Livre em Tóquio: Ikebukuro (Pokémon Center Mega + Animate), Nakano Broadway (colecionáveis) ou compras finais." },
@@ -406,7 +415,7 @@ const DAYS = [
     ],
     transporte: "Ferry + JR + Shinkansen Sanyo até Shin-Osaka",
     obs: "Confira a tábua de marés de Miyajima antes de decidir o horário da manhã.",
-    places: ["itsukushima", "misen", "miyajima-omotesando", "anagomeshi", "miyajimaguchi", "shinosaka", "dotonbori", "wanaka", "kanidoraku", "hotel-osaka"] },
+    places: ["itsukushima", "misen", "miyajima-omotesando", "anagomeshi", "miyajimaguchi", "hiroshima-sta", "shinosaka", "dotonbori", "wanaka", "kanidoraku", "hotel-osaka"] },
   { d: 13, date: "2026-08-05", dow: "qua", cidade: "Osaka", titulo: "Universal Studios Japan — dia inteiro", prioridade: "Imperdível",
     periodos: [
       { t: "Dia inteiro", desc: "Chegue 30–45 min ANTES da abertura. Super Nintendo World primeiro (Mario Kart, Mine Cart Madness, Donkey Kong Country — use Area Timed Entry pelo app se não tiver Express Pass). Depois Harry Potter, Jurassic Park, Minion Park, Hollywood Dream." },
@@ -423,16 +432,17 @@ const DAYS = [
     ],
     transporte: "Metrô Osaka — linhas Midosuji/Chuo",
     obs: "Melhor dia para eletrônicos em Den Den Town. Extra: Pokémon Center Osaka fica em Umeda (Daimaru).",
-    places: ["osakacastle", "shinsaibashi", "dendentown", "dotonbori", "daruma", "hozenji", "mizuno", "pokemon-osaka", "shinsekai", "nambayasaka", "harukas"] },
+    places: ["osakacastle", "shinsaibashi", "dendentown", "dotonbori", "daruma", "kanidoraku", "hozenji", "mizuno", "pokemon-osaka", "shinsekai", "nambayasaka", "harukas"] },
   { d: 15, date: "2026-08-07", dow: "sex", cidade: "Osaka → Tóquio", titulo: "Kuromon Ichiba e retorno a Tóquio", prioridade: "Transição (leve)", leve: true,
     periodos: [
       { t: "Manhã (9h–12h)", desc: "Kuromon Ichiba Market: wagyu na hora, frutos do mar e frutas premium. Alternativa: compras finais em Shinsaibashi ou Umeda." },
       { t: "Tarde", desc: "Shinkansen Shin-Osaka → Tóquio (~2h30, Nozomi) — o trecho mais longo do roteiro." },
       { t: "Noite", desc: "Check-in em Tóquio. Últimas compras na Character Street da Tokyo Station (Ghibli, Pokémon, Hello Kitty) e jantar de despedida." },
+      { t: "Madrugada (opcional, 22h–2h)", desc: "Última chance do Daikoku PA: SEXTA À NOITE, encontro de carros em Yokohama via tour guiado (busca no hotel). Grande final da viagem — mas só se o voo do dia 16 NÃO for de manhã cedo." },
     ],
     transporte: "Shinkansen Tokaido — Shin-Osaka → Tóquio",
-    obs: "Dia de descompressão. Se o voo for cedo, considere hotel perto do aeroporto.",
-    places: ["kuromon", "umeda", "shinosaka", "tokyostation", "rokurinsha", "hotel-tokyo"] },
+    obs: "Dia de descompressão. Se o voo for cedo, considere hotel perto do aeroporto e faça o Daikoku na sexta do dia 1 (24/07) em vez desta.",
+    places: ["kuromon", "umeda", "shinosaka", "tokyostation", "rokurinsha", "daikoku", "hotel-tokyo"] },
   { d: 16, date: "2026-08-08", dow: "sáb", cidade: "Tóquio", titulo: "Compras finais e voo de retorno", prioridade: "Imperdível",
     periodos: [
       { t: "Manhã", desc: "Compras de última hora (Pokémon Center ou Sanrio se ainda não foi) ou fechar as malas com calma." },
@@ -490,6 +500,7 @@ const CHECKLIST = [
     "Sanrio Puroland — ingresso datado com horário (dia 1, 24/07)",
     "teamLab Planets (horário marcado)",
     "Restaurantes especiais (kaiseki, Pokémon Café)",
+    "Tour Daikoku PA — encontro de carros (sexta 24/07 OU 07/08, à noite)",
     "eSIM (Ubigi/Airalo) ou Pocket WiFi",
     "Seguro viagem",
   ]},
@@ -603,6 +614,8 @@ const LINKS = [
   { n: "Museu Ghibli", url: "https://www.ghibli-museum.jp/en/", d: "Ingressos vendem no dia 10 do mês anterior — plano B de chuva" },
   { n: "Nintendo Museum (Uji)", url: "https://museum.nintendo.com/", d: "Sorteio de ingressos ~3 meses antes — sugestão extra de Kyoto" },
   { n: "Pokémon Café — reservas", url: "https://reserve.pokemon-cafe.jp/", d: "Reserva obrigatória, abre com semanas de antecedência" },
+  { n: "Daikoku PA — tours guiados", url: "https://daikokutour.com/", d: "Encontro de carros JDM (sexta à noite, dia 1 ou 15) — acesso só de carro, reserve o tour antes" },
+  { n: "Daikoku PA — tours no Viator", url: "https://www.viator.com/searchResults/all?text=Daikoku", d: "Alternativa para comparar operadores/preços do tour noturno" },
 ];
 
 const ETIQUETA = [
