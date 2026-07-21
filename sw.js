@@ -1,5 +1,5 @@
 /* Service Worker — funcionamento offline */
-const VERSION = "v11";
+const VERSION = "v12";
 const SHELL_CACHE = "shell-" + VERSION;
 const TILE_CACHE = "tiles-" + VERSION;
 const MAX_TILES = 400;
