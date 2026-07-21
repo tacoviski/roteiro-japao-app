@@ -247,6 +247,10 @@ const PLACES = [
     desc: "SUGESTÃO EXTRA: santuário na entrada de Gion, aberto e iluminado à noite (lanternas lindas) — encaixe natural na noite do dia 8. Grátis.", addr: "625 Gionmachi Kitagawa", hours: "24h", preco: "Grátis" },
   { id: "hotel-kyoto", nome: "Hotel: Rest Collection Gion-Shijo", cidade: "Kyoto", cat: "hospedagem", lat: 35.0031, lng: 135.769, roteiro: true, addr: "Kawaramachi-dori Shijo-sagaru, Inaricho 335 (Ed. Hōgen), Shimogyo-ku",
     desc: "4 noites (30/07–03/08). Check-in 15h / check-out 10h. Localização excelente, em Kawaramachi/Shijo — coração de Kyoto, com Gion e Nishiki Market a 5–10 min a pé. COMO CHEGAR ÀS ESTAÇÕES: Hankyu Kyoto-Kawaramachi ~3 min a pé (linha p/ Arashiyama via Katsura e p/ Osaka); Keihan Gion-Shijo ~6 min (atravessando o rio — linha direta p/ Fushimi Inari no dia 8); ponto de ônibus Shijo-Kawaramachi na porta (hub das linhas municipais). Para a Kyoto Station (Shinkansen, dias 10/11): ônibus 4/17/205 (~15–20 min) ou táxi (~10 min)." },
+  { id: "konbini-kyoto", nome: "Konbini 24h (Kawaramachi)", cidade: "Kyoto", cat: "conveniencia", lat: 35.0033, lng: 135.769, roteiro: false, rating: 4.4,
+    desc: "SUGESTÃO EXTRA: 7-Eleven, FamilyMart e Lawson por toda a Kawaramachi/Shijo, a 1–3 min do hotel. Comida pronta, ATM internacional, água e o que precisar, 24h.", addr: "Kawaramachi/Shijo, Shimogyo-ku", hours: "24h" },
+  { id: "donki-kyoto", nome: "Don Quijote Shijo Kawaramachi", cidade: "Kyoto", cat: "conveniencia", lat: 35.0058, lng: 135.7683, roteiro: false, rating: 4.3,
+    desc: "SUGESTÃO EXTRA: o Don Quijote a ~3 min a pé do hotel, subindo a Kawaramachi-dori — de tudo (cosméticos, doces, souvenirs, eletrônicos), tax-free, aberto até 1h da manhã.", addr: "321 Shioyacho, Kawaramachi-dori, Nakagyo", hours: "10h–1h" },
 
   // ================= NARA =================
   { id: "narapark", nome: "Parque de Nara (veados)", cidade: "Nara", cat: "turismo", lat: 34.6851, lng: 135.843, roteiro: true, dias: [10], rating: 4.7,
@@ -273,6 +277,10 @@ const PLACES = [
     desc: "Shinkansen Sanyo de/para Kyoto (~1h40) e Shin-Osaka (~1h20–1h40). Trem local JR Sanyo até Miyajimaguchi (~25–30 min). Coin lockers grandes para guardar a mala no bate-volta a Miyajima (dia 12)." },
   { id: "hotel-hiroshima", nome: "Hotel: Room in Naka-ku (Airbnb)", cidade: "Hiroshima", cat: "hospedagem", lat: 34.393, lng: 132.452, roteiro: true, dias: [11], addr: "2-5-12 Tōkaichimachi, Naka-ku",
     desc: "1 noite (03–04/08). Check-in 15h / check-out 10h. Fica em Naka-ku, praticamente COLADO no Parque Memorial da Paz (~10 min a pé) — perfeito para o dia 11. COMO CHEGAR ÀS ESTAÇÕES: bonde Hiroden 'Tōkaichi-machi' a ~5 min a pé (linhas para a Hiroshima Station e sentido Miyajimaguchi). Para a Hiroshima Station (Shinkansen): bonde ~15–20 min ou táxi ~10 min. Para Miyajima (dia 12): bonde/JR até Miyajimaguchi + ferry." },
+  { id: "konbini-hiroshima", nome: "Konbini 24h (perto do Peace Park)", cidade: "Hiroshima", cat: "conveniencia", lat: 34.3928, lng: 132.4525, roteiro: false, rating: 4.3,
+    desc: "SUGESTÃO EXTRA: lojas de conveniência 24h (7-Eleven, Lawson, FamilyMart) a poucos minutos do hotel e do Peace Park. Bom para o café da manhã antes de sair cedo para Miyajima no dia 12.", addr: "Naka-ku (perto de Tōkaichimachi)", hours: "24h" },
+  { id: "donki-hiroshima", nome: "Don Quijote Hiroshima Hacchobori", cidade: "Hiroshima", cat: "conveniencia", lat: 34.3905, lng: 132.4622, roteiro: false, rating: 4.3,
+    desc: "SUGESTÃO EXTRA: o Don Quijote de 5 andares no centro comercial (Hondori/Shintenchi), ~10–12 min a pé do hotel — de tudo, tax-free. Combina com a rua coberta Hondori e o Okonomimura.", addr: "5-3 Shintenchi, Naka-ku", hours: "~10h–madrugada" },
 
   // ================= MIYAJIMA =================
   { id: "itsukushima", nome: "Santuário Itsukushima & Torii Flutuante", cidade: "Miyajima", cat: "turismo", lat: 34.296, lng: 132.3198, roteiro: true, dias: [12], rating: 4.8,
@@ -337,6 +345,10 @@ const PLACES = [
     desc: "Hub de Namba: metrô Midosuji, Kintetsu e acesso a pé a Dotonbori." },
   { id: "hotel-osaka", nome: "Hotel: BLUE Shimanouchi (Airbnb)", cidade: "Osaka", cat: "hospedagem", lat: 34.6706, lng: 135.5028, roteiro: true, addr: "2-2-16 Shimanouchi, Chuo-ku",
     desc: "3 noites (04–07/08). Check-in 16h / check-out 10h (self check-in). Em Shimanouchi, a ~5 min a pé de Dotonbori. COMO CHEGAR ÀS ESTAÇÕES: Metrô Nagahoribashi (linhas Sakaisuji/Nagahori) ~5 min a pé; Namba (Midosuji/Yotsubashi/Sennichimae + Nankai/Kintetsu) ~8 min; Shinsaibashi (Midosuji) ~8 min. Para Shin-Osaka (Shinkansen, dia 15): Midosuji direto de Namba/Shinsaibashi (~12–15 min). Para a Universal (dia 13): ver o transporte do dia." },
+  { id: "konbini-osaka", nome: "Konbini 24h (Namba/Shimanouchi)", cidade: "Osaka", cat: "conveniencia", lat: 34.6708, lng: 135.5025, roteiro: false, rating: 4.4,
+    desc: "SUGESTÃO EXTRA: konbini 24h (7-Eleven, FamilyMart, Lawson) por toda a região de Shimanouchi/Namba, a 1–3 min do hotel. Comida pronta, ATM internacional, água e essenciais a qualquer hora.", addr: "Shimanouchi, Chuo-ku", hours: "24h" },
+  { id: "donki-osaka", nome: "Don Quijote Dotonbori (roda-gigante)", cidade: "Osaka", cat: "conveniencia", lat: 34.6688, lng: 135.5017, roteiro: false, rating: 4.4,
+    desc: "SUGESTÃO EXTRA: o icônico Don Quijote 24h à beira do canal de Dotonbori, com a roda-gigante Ebisu Tower na fachada — ~5 min a pé do hotel. De tudo, tax-free, e um marco para fotos à noite.", addr: "7-13 Soemoncho, Chuo-ku", hours: "24h" },
 ];
 
 // ================= ROTEIRO DIA A DIA =================
