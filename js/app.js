@@ -116,7 +116,7 @@ function renderInicio() {
 
   let todayCard = "";
   if (dayIdx) {
-    const d = DAYS[dayIdx - 1];
+    const d = DAYS.find((x) => x.d === dayIdx);
     todayCard = `<div class="card today-card">
       <h2>📌 Hoje — Dia ${d.d}: ${esc(d.titulo)}</h2>
       <p class="muted">${esc(d.cidade)} · ${fmtDate(d.date)} (${d.dow})</p>
@@ -385,7 +385,7 @@ function renderCidades() {
   const places = PLACES.filter((p) => p.cidade === cityActive);
   const byCat = {};
   places.forEach((p) => (byCat[p.cat] = byCat[p.cat] || []).push(p));
-  const order = ["turismo", "atividade", "restaurante", "cafe", "compras", "transporte", "hospedagem"];
+  const order = ["turismo", "atividade", "restaurante", "cafe", "compras", "conveniencia", "transporte", "hospedagem"];
   el.innerHTML = `
     <div class="city-tabs">${CIDADES.map((c) => `<button class="fbtn ${cityActive === c ? "active" : ""}" onclick="setCity('${c}')">${c}</button>`).join("")}</div>
     <div class="card">
@@ -488,7 +488,7 @@ function renderAgora() {
   const periodo = h < 12 ? 0 : h < 17 ? 1 : 2;
   let html = "";
   if (dayIdx) {
-    const d = DAYS[dayIdx - 1];
+    const d = DAYS.find((x) => x.d === dayIdx);
     const per = d.periodos[Math.min(periodo, d.periodos.length - 1)];
     html += `<p style="font-size:14px;line-height:1.6"><b>Dia ${d.d} · ${esc(d.titulo)}</b> — agora (${esc(per.t)}):</p>
       <p style="font-size:13.5px;line-height:1.6;margin:8px 0">${esc(per.desc)}</p>`;

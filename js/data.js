@@ -38,6 +38,7 @@ const CATS = {
   transporte:  { label: "Transporte",        icon: "🚄", cor: "#0ea5e9" },
   hospedagem:  { label: "Hospedagem",        icon: "🏨", cor: "#10b981" },
   atividade:   { label: "Atividades especiais", icon: "🎢", cor: "#ec4899" },
+  conveniencia:{ label: "Konbini & mercados", icon: "🏪", cor: "#14b8a6" },
 };
 
 const STATUS = {
@@ -189,6 +190,15 @@ const PLACES = [
     desc: "JR Keiyo Line desde Tokyo Station (~15–20 min) + Disney Resort Line até o DisneySea." },
   { id: "hotel-tokyo", nome: "Hotel: YM Hotel Sugamo", cidade: "Tóquio", cat: "hospedagem", lat: 35.7335, lng: 139.7392, roteiro: true, addr: "5-38-11 Sugamo (YM Building), Toshima-ku",
     desc: "SUA BASE EM TÓQUIO — reserva de 23/07 a 09/08 (fica reservado a viagem TODA). Check-in 16h / check-out 11h. Quarto triplo. Fica em Sugamo, na LINHA JR YAMANOTE (+ metrô Toei Mita): Ikebukuro a 2 min, Shinjuku ~12 min, Shibuya ~18 min, Tóquio/Ueno diretos; Akihabara com baldeação. DICA DE OURO: como o quarto fica reservado o tempo todo, DEIXE a mala grande aqui durante a volta por Kansai (dias 7–15) e viaje só com uma mochila — economiza Takkyubin. Sugamo é tranquilo, com a charmosa Jizo-dori ('Harajuku das vovós')." },
+  // Tóquio — konbini, mercados e conveniência perto do hotel (Sugamo)
+  { id: "sugamo-jizo", nome: "Jizo-dori (rua comercial de Sugamo)", cidade: "Tóquio", cat: "compras", lat: 35.7345, lng: 139.7385, roteiro: false, rating: 4.3,
+    desc: "SUGESTÃO EXTRA: a rua comercial tradicional coladinha no hotel — o 'Harajuku das vovós'. Lojinhas, doces (o famoso shio daifuku), comidinhas baratas e mercado de bairro. Ótima para o primeiro jantar e para sentir o Japão do dia a dia.", addr: "Sugamo, Toshima-ku", hours: "~10h–18h (lojas)" },
+  { id: "konbini-sugamo", nome: "Konbini 24h (Sugamo)", cidade: "Tóquio", cat: "conveniencia", lat: 35.7333, lng: 139.7398, roteiro: false, rating: 4.4,
+    desc: "SUGESTÃO EXTRA: várias lojas de conveniência 24h (7-Eleven, FamilyMart, Lawson) a 2–5 min do hotel, ao redor da estação de Sugamo. Comida pronta boa e barata, ATM internacional, água, guarda-chuva, carregar o Suica — resolve quase tudo.", addr: "Estação Sugamo, Toshima-ku", hours: "24h" },
+  { id: "super-sugamo", nome: "Supermercado (Sugamo)", cidade: "Tóquio", cat: "conveniencia", lat: 35.734, lng: 139.7405, roteiro: false, rating: 4.2,
+    desc: "SUGESTÃO EXTRA: supermercados de bairro perto da estação de Sugamo (busque 'supermarket' no mapa) — frutas, bentôs com desconto no fim do dia, bebidas e lanches bem mais baratos que no konbini. Bom para abastecer o quarto.", addr: "Sugamo, Toshima-ku", hours: "~10h–22h" },
+  { id: "donki-ikebukuro", nome: "MEGA Don Quijote Ikebukuro", cidade: "Tóquio", cat: "conveniencia", lat: 35.7295, lng: 139.716, roteiro: false, rating: 4.3,
+    desc: "SUGESTÃO EXTRA: megaloja 24h (cosméticos, doces, souvenirs, eletrônicos) a 1 estação/2 min de trem de Sugamo, em Ikebukuro. Tax-free — perfeita para compras de qualquer hora.", addr: "Ikebukuro (saída leste), Toshima", hours: "24h" },
 
   // ================= KYOTO =================
   { id: "fushimi", nome: "Fushimi Inari Taisha", cidade: "Kyoto", cat: "turismo", lat: 34.9671, lng: 135.7727, roteiro: true, dias: [8], rating: 4.8,
@@ -331,6 +341,15 @@ const PLACES = [
 
 // ================= ROTEIRO DIA A DIA =================
 const DAYS = [
+  { d: 0, date: "2026-07-23", dow: "qui", cidade: "Tóquio", titulo: "Chegada ao Japão · Haneda → Sugamo", prioridade: "Chegada", leve: true,
+    periodos: [
+      { t: "Desembarque (Haneda)", desc: "Imigração + alfândega em Haneda (HND). ANTES de sair do aeroporto: ative/carregue o Suica no Apple Wallet (ou compre um Welcome Suica) e pegue o eSIM/Pocket WiFi. Água no konbini, banheiro e respira — bem-vindo ao Japão! 🎌" },
+      { t: "Aeroporto → Hotel (Sugamo)", desc: "MELHOR ROTA (trem, ~45 min, ~¥560): Keikyu Airport Line até Shinagawa → JR Yamanote (sentido Ikebukuro) direto até Sugamo, sem baldeação extra. ALTERNATIVA: Tokyo Monorail até Hamamatsucho → JR Yamanote até Sugamo. COM MUITA MALA: Airport Limousine Bus até Ikebukuro (~¥1.400, ~50 min) + 1 estação de Yamanote ou táxi curto (~¥1.000) até Sugamo. O hotel fica a poucos minutos da estação de Sugamo." },
+      { t: "Check-in 16h+ / Noite", desc: "Check-in no YM Hotel Sugamo (a partir das 16h — chegou antes? deixe as malas na recepção). Jantar leve: konbini 24h, a rua Jizo-dori ao lado ou Ikebukuro (2 min de trem). Durma cedo para vencer o jet lag — amanhã é o dia 1 (Puroland)!" },
+    ],
+    transporte: "Haneda → Keikyu/Shinagawa ou Monorail/Hamamatsucho → JR Yamanote até Sugamo (~45 min). Com mala: Airport Limousine Bus até Ikebukuro",
+    obs: "Voo longo — priorize dormir bem esta noite. Tenha ienes em espécie e o endereço do hotel salvo offline (5-38-11 Sugamo). Cada um do trio precisa do próprio Suica.",
+    places: ["haneda", "sugamo-jizo", "konbini-sugamo", "super-sugamo", "hotel-tokyo"] },
   { d: 1, date: "2026-07-24", dow: "sex", cidade: "Tóquio", titulo: "Sanrio Puroland e Tokyo Tower", prioridade: "Muito recomendado",
     periodos: [
       { t: "Manhã (9h30–14h)", desc: "Sanrio Puroland em Tama (~45 min de Shinjuku pela linha Keio até Keio-Tama-Center): shows da Hello Kitty e amigos, atrações indoor, comida temática e compras. Ingresso com horário marcado — compre online antes." },
