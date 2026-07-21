@@ -188,7 +188,7 @@ const PLACES = [
     desc: "A estação mais movimentada do mundo. Hub das linhas Yamanote, Chuo, Marunouchi e Ōedo." },
   { id: "maihama", nome: "Estação Maihama (Disney)", cidade: "Tóquio", cat: "transporte", lat: 35.6363, lng: 139.8804, roteiro: true, dias: [4],
     desc: "JR Keiyo Line desde Tokyo Station (~15–20 min) + Disney Resort Line até o DisneySea." },
-  { id: "hotel-tokyo", nome: "Hotel: YM Hotel Sugamo", cidade: "Tóquio", cat: "hospedagem", lat: 35.7403, lng: 139.7369, roteiro: true, addr: "5-38-11 Sugamo (YM Building), Toshima-ku 170-0002",
+  { id: "hotel-tokyo", nome: "Hotel: YM Hotel Sugamo", cidade: "Tóquio", cat: "hospedagem", lat: 35.74031, lng: 139.73691, roteiro: true, addr: "5-38-11 Sugamo (YM Building), Toshima-ku 170-0002",
     desc: "SUA BASE EM TÓQUIO — reserva de 23/07 a 09/08 (fica reservado a viagem TODA). Check-in 16h / check-out 11h. Quarto triplo. Bairro tranquilo em Sugamo 5-chome (não é colado na estação JR). ESTAÇÕES MAIS PRÓXIMAS: bonde Toden Arakawa (Tokyo Sakura Tram) — Koshinzuka/Shin-Koshinzuka ~4–6 min a pé; metrô Toei Mita (Nishi-sugamo) ~6 min; JR Yamanote (Sugamo) ~11 min a pé — de Sugamo, Ikebukuro fica a 2 estações. COM MALA vale táxi de Ikebukuro/Sugamo (~¥1.000). DICA DE OURO: o quarto fica reservado o tempo todo — DEIXE a mala grande aqui durante o Kansai (dias 7–15) e viaje só com mochila. A rua Jizo-dori ('Harajuku das vovós') e vários konbini ficam no caminho até a estação." },
   // Tóquio — konbini, mercados e conveniência perto do hotel (Sugamo)
   { id: "sugamo-jizo", nome: "Jizo-dori (rua comercial de Sugamo)", cidade: "Tóquio", cat: "compras", lat: 35.7345, lng: 139.7385, roteiro: false, rating: 4.3,
